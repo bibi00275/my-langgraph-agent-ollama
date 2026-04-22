@@ -1,0 +1,36 @@
+# ---- Secrets (NEVER commit these) ----
+.env
+.env.local
+*.key
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# ---- Virtual envs ----
+.venv/
+venv/
+env/
+
+# ---- IDE / tooling ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# ---- Test / type-check caches ----
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# ---- Notebooks ----
+.ipynb_checkpoints/
