@@ -55,22 +55,7 @@ pytest
 Tests use a `FakeLLM` so they run in milliseconds with zero dependencies
 on Ollama or any network.
 
-## What changed from the Anthropic version
 
-Only three files differ:
-
-| File | Change |
-|---|---|
-| `requirements.txt` | `langchain-anthropic` → `langchain-ollama` |
-| `src/agent/graph.py` | `ChatAnthropic(...)` → `ChatOllama(...)` |
-| `src/agent/nodes.py` | Import + type hint swapped |
-| `src/agent/config.py` | Removed API key; added `base_url` |
-| `.env.example` | No API key; just `AGENT_MODEL` + `OLLAMA_BASE_URL` |
-
-Everything else — state schema, graph structure, tests — is untouched.
-**That's the whole point of clean architecture: providers are swappable.**
-
-## Troubleshooting
 
 **"Connection refused" on localhost:11434**
 Ollama isn't running. On macOS, check the menu bar. On Linux, run
