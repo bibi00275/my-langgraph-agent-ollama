@@ -46,31 +46,4 @@ python scripts/run_agent.py "Explain async/await in Python"
 First run will be slower — Ollama loads the model into RAM. Subsequent
 runs are fast because the model stays resident.
 
-## Run tests (offline, no Ollama needed)
 
-```bash
-pytest
-```
-
-Tests use a `FakeLLM` so they run in milliseconds with zero dependencies
-on Ollama or any network.
-
-
-
-**"Connection refused" on localhost:11434**
-Ollama isn't running. On macOS, check the menu bar. On Linux, run
-`systemctl status ollama`. On Windows, re-open the Ollama app.
-
-**"Model not found"**
-You haven't pulled it yet. Run `ollama pull <model-name>` (must match
-the `AGENT_MODEL` value in `.env`).
-
-**Slow responses**
-Normal for local inference, especially the first call after startup.
-Try a smaller model like `llama3.2:3b` if your machine is struggling.
-Check Activity Monitor / Task Manager — if RAM is pegged, use a smaller model.
-
-**Output format is worse than Claude**
-Expected — small local models follow complex instructions less reliably.
-Mitigations: use a bigger model, simplify prompts, or add output validation
-with retries in the analyzer.
